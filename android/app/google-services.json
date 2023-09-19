@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "938199901557",
+    "project_id": "crudfirestore-c614c",
+    "storage_bucket": "crudfirestore-c614c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:938199901557:android:95c5c47da937ed76cf5f3c",
+        "android_client_info": {
+          "package_name": "com.itcafepade.crud_firestore"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxELe40KhnCRtwXVzrduZ0UVYAglY-HVc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:938199901557:android:8407248ede812759cf5f3c",
+        "android_client_info": {
+          "package_name": "com.mjgl.demo_firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxELe40KhnCRtwXVzrduZ0UVYAglY-HVc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
