@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -10,13 +11,33 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+    
+    void getData() async {
+      CollectionReference collectionReference =
+      FirebaseFirestore.instance.collection("tbestudiantes");
+      QuerySnapshot mensajes = await collectionReference.get();
+      if(mensajes.docs.length != 0){
+      for (var doc in mensajes.docs){
+      print(doc.data());
+      //chatsx.add(doc.data());
+      }
+      }
+    }
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+
+Future<List> getMensajes() async {
+    List chats = [];
+    CollectionReference collectionReference =
+    FirebaseFirestore.instance.collection("tbchat");
+    QuerySnapshot mensajes = await collectionReference.get();
+    if(mensajes.docs.length != 0){
+    for (var doc in mensajes.docs){
+    print(doc.data());
+    chats.add(doc.data());
+    }
+ }
+    return chats;
+ }
 
   @override
   Widget build(BuildContext context) {
@@ -25,21 +46,36 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(
+      body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
+            
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: (){
+          getData();
+        },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getData();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+
+  }
+
 }
